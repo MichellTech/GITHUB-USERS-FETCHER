@@ -96,6 +96,10 @@ h4 {
   outline: 2px solid hsl(120, 70%, 30%);
   border: none;
 }
+label {
+  width: 100%;
+  max-width: max-content;
+}
 /* .search-button {
   background: var(--clr-navy-blue);
   color: #fff;
