@@ -99,6 +99,7 @@ h4 {
 label {
   width: 100%;
   max-width: max-content;
+  grid-column: span 3;
 }
 /* .search-button {
   background: var(--clr-navy-blue);
