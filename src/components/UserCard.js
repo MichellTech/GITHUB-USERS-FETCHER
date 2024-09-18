@@ -1,5 +1,4 @@
 import React from 'react'
-// import dummy from './images/dummy.png'
 function UserCard({ result, userData }) {
   return (
     <section className='card-section'>

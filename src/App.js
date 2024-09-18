@@ -15,8 +15,6 @@ function App() {
     text: 'Input your query parameters in the search box above to begin surfing through the GitHub Users database',
     icon: <FaUsers className='icon' />,
   })
-  // console.log(userData)
-  // const isEmptyObject = (obj) => obj && Object.keys(obj).length === 0
 
   return (
     <main>

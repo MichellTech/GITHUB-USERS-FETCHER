@@ -68,9 +68,6 @@ function SearchBar({
           onChange={(e) => setQuery(e.target.value)}
           list='search-history'
         />
-        {/* <button disabled={loading} type='submit' className='search-button'>
-          Search
-        </button> */}
       </form>
 
       <datalist id='search-history'>
