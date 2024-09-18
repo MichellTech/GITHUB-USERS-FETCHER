@@ -3,7 +3,7 @@ function UserCard({ result, userData }) {
   return (
     <section className='card-section'>
       <h1 className='query-text'>
-        Showing results for : <span>{result}</span>{' '}
+        Showing result for : <span>{result}</span>{' '}
       </h1>
       <div className='card'>
         {/* image */}

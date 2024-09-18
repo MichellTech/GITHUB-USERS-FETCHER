@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react'
+import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { toast, ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
@@ -18,8 +18,8 @@ function SearchBar({
 }) {
   const [history, setHistory] = useState([])
 
-  const debouncedSearch = useCallback(
-    debounce((query) => {
+  useEffect(() => {
+    const debouncedSearch = debounce((query) => {
       if (query === '') {
         return toast.warning('Please input a GitHub username')
       }
@@ -39,26 +39,24 @@ function SearchBar({
           setError(true)
           setDisplayMessage({
             title: 'User Not Found',
-            text: `We couldn’t find any GitHub User named ${query}. Please adjust your search parameters to get more results.`,
+            text: `We couldn’t find any GitHub User named '${query}'. Please adjust your search parameters to get more results.`,
             icon: <FaUserSlash className='icon' />,
           })
           console.log(error)
         })
-    }, 500),
-    [setUserData, setLoading, setResult, setError, setDisplayMessage]
-  )
+    }, 500)
 
-  useEffect(() => {
     if (query) {
       debouncedSearch(query)
     }
+
     return () => debouncedSearch.cancel()
-  }, [query, debouncedSearch])
+  }, [query, setLoading, setError, setUserData, setResult, setDisplayMessage])
 
   return (
     <section className='section-center'>
       <form className='search-form'>
-        <label htmlFor='query'> GitHub user Name</label>
+        <label htmlFor='query'>GitHub Username</label>
         <input
           type='text'
           aria-label='GitHub Username'
